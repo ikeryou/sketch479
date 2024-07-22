@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1;
+}
+
+html, body {
+  background-color: #000;
+}
+
+.js-tgSVG {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+  z-index: 9999;
+}
+
+.s-gpu {
+  will-change: transform;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+
+.l-main-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3vw;
+
+
+}
+
+.l-main {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.l-main > .item {
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  transform-origin: calc(100% - 10px - 0.5rem) 50%;
+}
+
+.l-accordion {
+  color: #FFF;
+  border: 1px solid #FFF;
+  width: 100%;
+}
+
+.l-accordion.-nakami {
+  position: absolute;
+}
+
+.l-accordion.-nakami .icon {
+  display: none;
+}
+
+
+summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 10px;
+  overflow: hidden;
+}
+
+summary .text {
+  white-space: nowrap;
+}
+
+summary::marker {
+  opacity: 0;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  inline-size: 1em;
+  aspect-ratio: 1;
+}
+
+.icon::before, .icon::after {
+  position: absolute;
+  inset: 0;
+  inline-size: 50%;
+  block-size: 2px;
+  margin: auto;
+  content: "";
+  background-color: currentcolor;
+}
+
+.icon::after {
+  rotate: 90deg;
+}
+
+.l-accordion.-open .icon::after {
+  opacity: 0;
+}
+.l-accordion.-open {
+  background-color: yellow;
+}
+.l-accordion.-open summary {
+  color: #000;
+}
+.icon:where(.l-accordion[open] *)::after {
+  opacity: 0;
+}
+
+.container {
+  overflow: hidden;
+  height: 0px;
+}
+
+.inner {
+  border-top: 1px solid #FFF;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: justify;
+  word-break: break-all;
+  background-color: #000;
+  color: #FFF;
+}
+
+.js-org {
+  display: none;
+}
+
+
+
+.l-debug {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  color: #FFF;
+  font-size: 12px;
+  display: none;
+}
+.l-info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 40px;
+  color: #fff;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 9999;
+}
+.l-info p {
+  font-size: 14px;
+  color: inherit;
+  background-color: #000;
+  padding: 5px 20px 5px 20px;
+}
+.l-info a {
+  color: inherit;
+  text-decoration: line-through;
+}
+.l-info a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width:768px) {
+  .l-info {
+    justify-content: flex-start;
+    margin: 20px;
+    height: auto;
+  }
+  .l-info p {
+    font-size: 10px;
+  }
+
+  .l-main-wrapper {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+  }
+}
